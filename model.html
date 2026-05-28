@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Model — UZ Digital Maturity</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-brand"><i class="fas fa-university"></i><span>UZ Digital Assessment</span></div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="findings.html">Findings</a></li>
+      <li><a href="model.html" class="active">Model</a></li>
+      <li><a href="recommendations.html">Recommendations</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
+  </nav>
+
+  <div class="page-hero">
+    <div class="container">
+      <h1>Machine Learning Model</h1>
+      <p>K-Means clustering, Decision Tree, and Random Forest classification with cross-validation.</p>
+    </div>
+  </div>
+
+  <!-- MODEL METRICS -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Model Performance</h2>
+        <p>Both classifiers achieve near-perfect accuracy on the test set.</p>
+      </div>
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <div class="metric-icon"><i class="fas fa-tree"></i></div>
+          <h3>Decision Tree</h3>
+          <div class="metric-row">
+            <span>Accuracy</span>
+            <div class="metric-bar-wrap"><div class="metric-bar" style="width:96.9%"></div><span>96.9%</span></div>
+          </div>
+          <div class="metric-row">
+            <span>F1 Score</span>
+            <div class="metric-bar-wrap"><div class="metric-bar" style="width:96.8%"></div><span>0.968</span></div>
+          </div>
+          <div class="metric-row">
+            <span>CV F1 (5-fold)</span>
+            <div class="metric-bar-wrap"><div class="metric-bar" style="width:95%"></div><span>~0.95</span></div>
+          </div>
+        </div>
+        <div class="metric-card featured">
+          <div class="metric-icon"><i class="fas fa-seedling"></i></div>
+          <h3>Random Forest <span class="badge-best">Best</span></h3>
+          <div class="metric-row">
+            <span>Accuracy</span>
+            <div class="metric-bar-wrap"><div class="metric-bar" style="width:96.9%"></div><span>96.9%</span></div>
+          </div>
+          <div class="metric-row">
+            <span>F1 Score</span>
+            <div class="metric-bar-wrap"><div class="metric-bar" style="width:96.8%"></div><span>0.968</span></div>
+          </div>
+          <div class="metric-row">
+            <span>CV F1 (5-fold)</span>
+            <div class="metric-bar-wrap"><div class="metric-bar" style="width:96%"></div><span>~0.96</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURE IMPORTANCE -->
+  <section class="section bg-light">
+    <div class="container">
+      <div class="section-header">
+        <h2>Feature Importance</h2>
+        <p>Random Forest reveals which dimensions drive the maturity classification.</p>
+      </div>
+      <div class="two-col">
+        <div>
+          <canvas id="featureImportance" height="280"></canvas>
+        </div>
+        <div class="feature-insights">
+          <div class="fi-item">
+            <div class="fi-rank red">1</div>
+            <div>
+              <strong>WiFi Reliability</strong>
+              <p>~0.90 importance — by far the dominant predictor. Whether a student is Emerging or Established is almost entirely determined by their WiFi experience.</p>
+            </div>
+          </div>
+          <div class="fi-item">
+            <div class="fi-rank blue">2</div>
+            <div>
+              <strong>Emhare Ease</strong>
+              <p>~0.05 importance — contributes modestly. Portal usability matters but is not the differentiator.</p>
+            </div>
+          </div>
+          <div class="fi-item">
+            <div class="fi-rank green">3</div>
+            <div>
+              <strong>Clearance Process</strong>
+              <p>~0.03 importance — nearly identical scores across both clusters mean it adds little discriminatory power.</p>
+            </div>
+          </div>
+          <div class="fi-item">
+            <div class="fi-rank orange">4</div>
+            <div>
+              <strong>Google Classroom</strong>
+              <p>~0.02 importance — confidence grows with maturity but is not a strong separator at this stage.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONFUSION MATRIX -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Confusion Matrix</h2>
+        <p>Random Forest predictions on the 30% held-out test set.</p>
+      </div>
+      <div class="cm-wrap">
+        <div class="cm-grid">
+          <div class="cm-label-top"></div>
+          <div class="cm-label-top pred-label">Predicted: Emerging</div>
+          <div class="cm-label-top pred-label">Predicted: Established</div>
+          <div class="cm-label-side">Actual: Emerging</div>
+          <div class="cm-cell tp">8<span>True Positive</span></div>
+          <div class="cm-cell fn">1<span>False Negative</span></div>
+          <div class="cm-label-side">Actual: Established</div>
+          <div class="cm-cell fp">0<span>False Positive</span></div>
+          <div class="cm-cell tn">22<span>True Negative</span></div>
+        </div>
+        <div class="cm-legend">
+          <span><span class="dot tp-dot"></span> Correct predictions: 30/31</span>
+          <span><span class="dot fn-dot"></span> Misclassified: 1/31</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SILHOUETTE -->
+  <section class="section bg-light">
+    <div class="container">
+      <div class="section-header">
+        <h2>Cluster Validation — Silhouette Scores</h2>
+        <p>k=2 gives the highest silhouette score, confirming the binary maturity split is the most natural grouping.</p>
+      </div>
+      <canvas id="silhouetteModel" height="100"></canvas>
+      <div class="insight-box mt-2">
+        <i class="fas fa-check-circle"></i>
+        <div>
+          <strong>Optimal k=2:</strong> Silhouette score of 0.365 at k=2 is the highest across all tested values (k=2 to k=5). The data naturally separates into two adoption groups — Emerging and Established.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPOSITE SCORE -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Composite Maturity Score</h2>
+        <p>A weighted index combining all four dimensions, with WiFi weighted highest based on feature importance.</p>
+      </div>
+      <div class="weights-display">
+        <div class="weight-item">
+          <div class="weight-circle" style="--pct:40%; --color:#e74c3c">40%</div>
+          <span>WiFi Reliability</span>
+        </div>
+        <div class="weight-item">
+          <div class="weight-circle" style="--pct:20%; --color:#3498db">20%</div>
+          <span>Emhare Ease</span>
+        </div>
+        <div class="weight-item">
+          <div class="weight-circle" style="--pct:20%; --color:#2ecc71">20%</div>
+          <span>Clearance Process</span>
+        </div>
+        <div class="weight-item">
+          <div class="weight-circle" style="--pct:20%; --color:#f39c12">20%</div>
+          <span>Google Classroom</span>
+        </div>
+      </div>
+      <canvas id="compositeScore" height="100" class="mt-2"></canvas>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div><h4><i class="fas fa-university"></i> UZ Digital Assessment</h4><p>Machine learning–powered digital maturity study.</p></div>
+        <div><h4>Pages</h4><ul><li><a href="index.html">Home</a></li><li><a href="findings.html">Findings</a></li><li><a href="model.html">Model</a></li><li><a href="recommendations.html">Recommendations</a></li><li><a href="dashboard.html">Dashboard</a></li></ul></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2024 University of Zimbabwe · Digital Maturity Assessment Project</p></div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/charts-model.js"></script>
+</body>
+</html>

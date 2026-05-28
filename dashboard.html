@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — UZ Digital Maturity</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-brand"><i class="fas fa-university"></i><span>UZ Digital Assessment</span></div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="findings.html">Findings</a></li>
+      <li><a href="model.html">Model</a></li>
+      <li><a href="recommendations.html">Recommendations</a></li>
+      <li><a href="dashboard.html" class="active">Dashboard</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
+  </nav>
+
+  <div class="page-hero">
+    <div class="container">
+      <h1>Live Dashboard</h1>
+      <p>All key metrics and visualisations in one place.</p>
+    </div>
+  </div>
+
+  <!-- KPI STRIP -->
+  <section class="section">
+    <div class="container">
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <i class="fas fa-users kpi-icon blue"></i>
+          <div class="kpi-body">
+            <span class="kpi-num">104</span>
+            <span class="kpi-label">Students Surveyed</span>
+          </div>
+        </div>
+        <div class="kpi-card">
+          <i class="fas fa-check-circle kpi-icon green"></i>
+          <div class="kpi-body">
+            <span class="kpi-num">96.9%</span>
+            <span class="kpi-label">Model Accuracy</span>
+          </div>
+        </div>
+        <div class="kpi-card">
+          <i class="fas fa-wifi kpi-icon red"></i>
+          <div class="kpi-body">
+            <span class="kpi-num">2.24</span>
+            <span class="kpi-label">WiFi Score (Established)</span>
+          </div>
+        </div>
+        <div class="kpi-card">
+          <i class="fas fa-chart-line kpi-icon orange"></i>
+          <div class="kpi-body">
+            <span class="kpi-num">0.365</span>
+            <span class="kpi-label">Silhouette Score (k=2)</span>
+          </div>
+        </div>
+        <div class="kpi-card">
+          <i class="fas fa-bullseye kpi-icon purple"></i>
+          <div class="kpi-body">
+            <span class="kpi-num">4.0</span>
+            <span class="kpi-label">Institutional Target</span>
+          </div>
+        </div>
+        <div class="kpi-card">
+          <i class="fas fa-exclamation-triangle kpi-icon yellow"></i>
+          <div class="kpi-body">
+            <span class="kpi-num">29%</span>
+            <span class="kpi-label">Students — Emerging</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHARTS ROW 1 -->
+  <section class="section bg-light">
+    <div class="container">
+      <div class="dash-row">
+        <div class="dash-panel">
+          <h3 class="panel-title">Student Maturity Split</h3>
+          <canvas id="db-pie"></canvas>
+        </div>
+        <div class="dash-panel">
+          <h3 class="panel-title">Feature Importance (Random Forest)</h3>
+          <canvas id="db-importance"></canvas>
+        </div>
+        <div class="dash-panel">
+          <h3 class="panel-title">Silhouette Scores by k</h3>
+          <canvas id="db-silhouette"></canvas>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHARTS ROW 2 -->
+  <section class="section">
+    <div class="container">
+      <div class="dash-row">
+        <div class="dash-panel wide">
+          <h3 class="panel-title">Emerging vs Established — Dimension Scores</h3>
+          <canvas id="db-dimension"></canvas>
+        </div>
+        <div class="dash-panel">
+          <h3 class="panel-title">Composite Score by Group</h3>
+          <canvas id="db-composite"></canvas>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHARTS ROW 3 -->
+  <section class="section bg-light">
+    <div class="container">
+      <div class="dash-row">
+        <div class="dash-panel wide">
+          <h3 class="panel-title">Quarterly Score Projection</h3>
+          <canvas id="db-projection"></canvas>
+        </div>
+        <div class="dash-panel">
+          <h3 class="panel-title">Gap to Target (4.0)</h3>
+          <canvas id="db-gap"></canvas>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RADAR -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Radar — All Groups Comparison</h2>
+        <p>Average scores across all four dimensions for each stakeholder group.</p>
+      </div>
+      <div class="radar-wrap">
+        <canvas id="db-radar"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUMMARY TABLE -->
+  <section class="section bg-light">
+    <div class="container">
+      <div class="section-header">
+        <h2>Full Results Summary</h2>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Group</th>
+              <th>Maturity Level</th>
+              <th>Emhare Ease</th>
+              <th>WiFi Reliability</th>
+              <th>Clearance Process</th>
+              <th>Google Classroom</th>
+              <th>Composite Score</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Students — Emerging</td>
+              <td><span class="badge red">Emerging</span></td>
+              <td>3.41</td>
+              <td><strong class="red-text">4.97</strong></td>
+              <td>3.10</td>
+              <td>3.07</td>
+              <td>3.90</td>
+            </tr>
+            <tr>
+              <td>Students — Established</td>
+              <td><span class="badge blue">Established</span></td>
+              <td>3.21</td>
+              <td><strong class="red-text">2.24</strong></td>
+              <td>3.07</td>
+              <td>3.27</td>
+              <td>2.80</td>
+            </tr>
+            <tr>
+              <td>Librarians</td>
+              <td><span class="badge blue">Established</span></td>
+              <td>3.00</td>
+              <td>3.00</td>
+              <td>3.00</td>
+              <td>3.00</td>
+              <td>3.00</td>
+            </tr>
+            <tr>
+              <td>ICT Staff</td>
+              <td><span class="badge blue">Established</span></td>
+              <td>3.00</td>
+              <td>3.00</td>
+              <td>2.00</td>
+              <td>3.00</td>
+              <td>2.80</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div><h4><i class="fas fa-university"></i> UZ Digital Assessment</h4><p>Machine learning–powered digital maturity study.</p></div>
+        <div><h4>Pages</h4><ul><li><a href="index.html">Home</a></li><li><a href="findings.html">Findings</a></li><li><a href="model.html">Model</a></li><li><a href="recommendations.html">Recommendations</a></li><li><a href="dashboard.html">Dashboard</a></li></ul></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2024 University of Zimbabwe · Digital Maturity Assessment Project</p></div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/charts-dashboard.js"></script>
+</body>
+</html>

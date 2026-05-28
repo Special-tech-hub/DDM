@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UZ Digital Maturity Assessment</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar">
+    <div class="nav-brand">
+      <i class="fas fa-university"></i>
+      <span>UZ Digital Assessment</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="findings.html">Findings</a></li>
+      <li><a href="model.html">Model</a></li>
+      <li><a href="recommendations.html">Recommendations</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-content">
+      <span class="hero-badge">University of Zimbabwe · 2024</span>
+      <h1>Digital Maturity<br /><span class="accent">Assessment Project</span></h1>
+      <p>A data-driven evaluation of digital service adoption across Students, Librarians, and ICT Staff — powered by machine learning clustering and classification.</p>
+      <div class="hero-btns">
+        <a href="findings.html" class="btn btn-primary">Explore Findings</a>
+        <a href="dashboard.html" class="btn btn-outline">View Dashboard</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="stat-cards">
+        <div class="stat-card">
+          <i class="fas fa-users"></i>
+          <span class="stat-num">104</span>
+          <span class="stat-label">Students Surveyed</span>
+        </div>
+        <div class="stat-card">
+          <i class="fas fa-book-open"></i>
+          <span class="stat-num">5</span>
+          <span class="stat-label">Librarians</span>
+        </div>
+        <div class="stat-card">
+          <i class="fas fa-laptop-code"></i>
+          <span class="stat-num">5</span>
+          <span class="stat-label">ICT Staff</span>
+        </div>
+        <div class="stat-card">
+          <i class="fas fa-brain"></i>
+          <span class="stat-num">96.9%</span>
+          <span class="stat-label">Model Accuracy</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- OVERVIEW SECTION -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Project Overview</h2>
+        <p>This project assesses the digital maturity of the University of Zimbabwe across four key dimensions using survey data, unsupervised clustering, and supervised classification.</p>
+      </div>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-icon blue"><i class="fas fa-wifi"></i></div>
+          <h3>WiFi Reliability</h3>
+          <p>Campus network performance across the Library, Hostels, and Lecture Rooms — the single strongest predictor of digital maturity.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon green"><i class="fas fa-portal-enter fas fa-door-open"></i></div>
+          <h3>Emhare Portal</h3>
+          <p>Ease of using the Emhare portal for student registration, results checking, and academic administration.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon orange"><i class="fas fa-clipboard-check"></i></div>
+          <h3>Clearance Process</h3>
+          <p>Efficiency of the online student clearance process during graduation and semester-end — a shared pain point across all groups.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon purple"><i class="fab fa-google"></i></div>
+          <h3>Google Classroom</h3>
+          <p>Student and staff confidence in using Google Classroom and other digital learning platforms for coursework delivery.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- METHODOLOGY -->
+  <section class="section bg-light">
+    <div class="container">
+      <div class="section-header">
+        <h2>Methodology Pipeline</h2>
+        <p>A structured end-to-end data science workflow from raw survey responses to actionable recommendations.</p>
+      </div>
+      <div class="pipeline">
+        <div class="pipeline-step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h4>Data Collection</h4>
+            <p>Google Forms surveys distributed to Students, Librarians, and ICT Staff</p>
+          </div>
+        </div>
+        <div class="pipeline-arrow"><i class="fas fa-chevron-right"></i></div>
+        <div class="pipeline-step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h4>Cleaning</h4>
+            <p>Missing value imputation using column means; column standardisation</p>
+          </div>
+        </div>
+        <div class="pipeline-arrow"><i class="fas fa-chevron-right"></i></div>
+        <div class="pipeline-step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h4>Clustering</h4>
+            <p>K-Means (k=2) with Elbow + Silhouette validation → Emerging / Established</p>
+          </div>
+        </div>
+        <div class="pipeline-arrow"><i class="fas fa-chevron-right"></i></div>
+        <div class="pipeline-step">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <h4>Classification</h4>
+            <p>Decision Tree + Random Forest with 5-fold cross-validation (96.9% accuracy)</p>
+          </div>
+        </div>
+        <div class="pipeline-arrow"><i class="fas fa-chevron-right"></i></div>
+        <div class="pipeline-step">
+          <div class="step-num">5</div>
+          <div class="step-body">
+            <h4>Insights</h4>
+            <p>Gap analysis, priority matrix, and quarterly improvement roadmap</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KEY RESULTS STRIP -->
+  <section class="results-strip">
+    <div class="container">
+      <div class="results-grid">
+        <div class="result-item">
+          <span class="result-num">0.365</span>
+          <span class="result-label">Best Silhouette Score (k=2)</span>
+        </div>
+        <div class="result-item">
+          <span class="result-num">71%</span>
+          <span class="result-label">Students — Established</span>
+        </div>
+        <div class="result-item">
+          <span class="result-num">29%</span>
+          <span class="result-label">Students — Emerging</span>
+        </div>
+        <div class="result-item">
+          <span class="result-num">~0.90</span>
+          <span class="result-label">WiFi Feature Importance</span>
+        </div>
+        <div class="result-item">
+          <span class="result-num">4.0</span>
+          <span class="result-label">Institutional Target Score</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4><i class="fas fa-university"></i> UZ Digital Assessment</h4>
+          <p>A machine learning–powered digital maturity study for the University of Zimbabwe.</p>
+        </div>
+        <div>
+          <h4>Pages</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="findings.html">Findings</a></li>
+            <li><a href="model.html">Model</a></li>
+            <li><a href="recommendations.html">Recommendations</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Dimensions</h4>
+          <ul>
+            <li>WiFi Reliability</li>
+            <li>Emhare Portal</li>
+            <li>Clearance Process</li>
+            <li>Google Classroom</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 University of Zimbabwe · Digital Maturity Assessment Project</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

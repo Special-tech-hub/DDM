@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recommendations — UZ Digital Maturity</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-brand"><i class="fas fa-university"></i><span>UZ Digital Assessment</span></div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="findings.html">Findings</a></li>
+      <li><a href="model.html">Model</a></li>
+      <li><a href="recommendations.html" class="active">Recommendations</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
+  </nav>
+
+  <div class="page-hero">
+    <div class="container">
+      <h1>Recommendations</h1>
+      <p>Data-driven action plan to improve digital maturity across all groups at the University of Zimbabwe.</p>
+    </div>
+  </div>
+
+  <!-- PRIORITY MATRIX -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Priority Matrix</h2>
+        <p>Interventions plotted by expected impact vs implementation effort.</p>
+      </div>
+      <div class="priority-matrix">
+        <div class="quadrant q1">
+          <h4><i class="fas fa-star"></i> Quick Wins</h4>
+          <p class="q-sub">High Impact · Low Effort</p>
+          <ul>
+            <li><i class="fas fa-check"></i> Google Classroom training workshops</li>
+            <li><i class="fas fa-check"></i> Digital literacy orientation (induction)</li>
+            <li><i class="fas fa-check"></i> Emhare portal help guides & FAQs</li>
+          </ul>
+        </div>
+        <div class="quadrant q2">
+          <h4><i class="fas fa-rocket"></i> Major Projects</h4>
+          <p class="q-sub">High Impact · High Effort</p>
+          <ul>
+            <li><i class="fas fa-check"></i> Campus WiFi infrastructure upgrade</li>
+            <li><i class="fas fa-check"></i> Library + ICT system integration</li>
+            <li><i class="fas fa-check"></i> Clearance process full automation</li>
+          </ul>
+        </div>
+        <div class="quadrant q3">
+          <h4><i class="fas fa-tasks"></i> Fill-ins</h4>
+          <p class="q-sub">Low Impact · Low Effort</p>
+          <ul>
+            <li><i class="fas fa-check"></i> Staff ICT upskilling (basic)</li>
+            <li><i class="fas fa-check"></i> Emhare mobile responsiveness</li>
+          </ul>
+        </div>
+        <div class="quadrant q4">
+          <h4><i class="fas fa-pause-circle"></i> Defer</h4>
+          <p class="q-sub">Low Impact · High Effort</p>
+          <ul>
+            <li><i class="fas fa-minus"></i> Full portal rebuild (short-term)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DETAILED RECS -->
+  <section class="section bg-light">
+    <div class="container">
+      <div class="section-header">
+        <h2>Detailed Action Plan</h2>
+        <p>Specific recommendations for each dimension, with targets and timelines.</p>
+      </div>
+      <div class="rec-list">
+
+        <div class="rec-card critical">
+          <div class="rec-header">
+            <div class="rec-icon"><i class="fas fa-wifi"></i></div>
+            <div>
+              <span class="rec-tag critical-tag">Critical Priority</span>
+              <h3>A. WiFi Reliability — Infrastructure Upgrade</h3>
+            </div>
+          </div>
+          <div class="rec-body">
+            <div class="rec-finding">
+              <strong>Finding:</strong> WiFi is the single strongest predictor of digital maturity (~0.90 feature importance). Established students rate it at only 2.24/5 — the largest gap in the dataset.
+            </div>
+            <div class="rec-actions">
+              <h4>Actions:</h4>
+              <ul>
+                <li>Increase campus bandwidth and deploy Wi-Fi 6 access points in high-density areas</li>
+                <li>Extend coverage to hostels, lecture rooms, and library study areas</li>
+                <li>Implement QoS policies to prioritise academic traffic over general browsing</li>
+                <li>Introduce a real-time network status dashboard for students</li>
+              </ul>
+            </div>
+            <div class="rec-target">
+              <i class="fas fa-bullseye"></i>
+              <span><strong>Target:</strong> Raise average WiFi score from 2.24 to &ge;4.0 within 12 months</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="rec-card high">
+          <div class="rec-header">
+            <div class="rec-icon blue-icon"><i class="fas fa-door-open"></i></div>
+            <div>
+              <span class="rec-tag high-tag">High Priority</span>
+              <h3>B. Emhare Portal — UX Redesign</h3>
+            </div>
+          </div>
+          <div class="rec-body">
+            <div class="rec-finding">
+              <strong>Finding:</strong> All groups score Emhare at 3.0–3.4. It is functional but not satisfying. Emerging students find it slightly easier (3.41) while Established students are more critical (3.21).
+            </div>
+            <div class="rec-actions">
+              <h4>Actions:</h4>
+              <ul>
+                <li>Conduct a full UX audit with student focus groups</li>
+                <li>Simplify registration and results-checking workflows to fewer steps</li>
+                <li>Add mobile-responsive design and offline caching for low-connectivity scenarios</li>
+                <li>Improve error messages and add contextual help tooltips</li>
+              </ul>
+            </div>
+            <div class="rec-target">
+              <i class="fas fa-bullseye"></i>
+              <span><strong>Target:</strong> Raise Emhare score to &ge;4.0 across all groups by Q3</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="rec-card high">
+          <div class="rec-header">
+            <div class="rec-icon green-icon"><i class="fas fa-clipboard-check"></i></div>
+            <div>
+              <span class="rec-tag high-tag">High Priority</span>
+              <h3>C. Clearance Process — Full Automation</h3>
+            </div>
+          </div>
+          <div class="rec-body">
+            <div class="rec-finding">
+              <strong>Finding:</strong> ClearanceProcess scores ~3.0–3.1 across all groups — a shared, consistent pain point. ICT Staff score it lowest at 2.0, indicating backend inefficiencies.
+            </div>
+            <div class="rec-actions">
+              <h4>Actions:</h4>
+              <ul>
+                <li>Automate clearance end-to-end — integrate library, finance, and academic registry systems</li>
+                <li>Introduce real-time clearance status tracking visible to students</li>
+                <li>Eliminate manual sign-off steps; replace with digital approvals</li>
+                <li>Set SLA targets for each clearance stage (e.g., 24-hour turnaround)</li>
+              </ul>
+            </div>
+            <div class="rec-target">
+              <i class="fas fa-bullseye"></i>
+              <span><strong>Target:</strong> Reduce manual steps by 80%; raise score to &ge;4.0 by Q4</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="rec-card medium">
+          <div class="rec-header">
+            <div class="rec-icon orange-icon"><i class="fab fa-google"></i></div>
+            <div>
+              <span class="rec-tag medium-tag">Medium Priority</span>
+              <h3>D. Google Classroom — Digital Literacy Training</h3>
+            </div>
+          </div>
+          <div class="rec-body">
+            <div class="rec-finding">
+              <strong>Finding:</strong> Confidence grows with maturity (Established: 3.27 vs Emerging: 3.07). This is a quick win — low effort, meaningful impact on Emerging students.
+            </div>
+            <div class="rec-actions">
+              <h4>Actions:</h4>
+              <ul>
+                <li>Run structured digital literacy workshops for Emerging students each semester</li>
+                <li>Create short video tutorials and embed them in the Emhare portal</li>
+                <li>Establish a peer-mentoring programme pairing Established with Emerging students</li>
+                <li>Integrate Google Classroom orientation into student induction week</li>
+              </ul>
+            </div>
+            <div class="rec-target">
+              <i class="fas fa-bullseye"></i>
+              <span><strong>Target:</strong> Raise Emerging students' confidence to &ge;3.8 by end of Q2</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="rec-card medium">
+          <div class="rec-header">
+            <div class="rec-icon purple-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+            <div>
+              <span class="rec-tag medium-tag">Medium Priority</span>
+              <h3>E. Librarians &amp; ICT Staff — Capacity Building</h3>
+            </div>
+          </div>
+          <div class="rec-body">
+            <div class="rec-finding">
+              <strong>Finding:</strong> All Librarians and ICT Staff are classified as Established — a positive baseline — but scores are uniformly 3.0, indicating a ceiling effect with room for growth.
+            </div>
+            <div class="rec-actions">
+              <h4>Actions:</h4>
+              <ul>
+                <li>Invest in advanced ICT training: cybersecurity, cloud systems, data analytics</li>
+                <li>Librarians: training on digital resource management, e-learning support, and metadata standards</li>
+                <li>ICT Staff: training on network management, helpdesk automation, and system integration</li>
+                <li>Establish annual upskilling certification programme</li>
+              </ul>
+            </div>
+            <div class="rec-target">
+              <i class="fas fa-bullseye"></i>
+              <span><strong>Target:</strong> Move all staff to Advanced tier through annual upskilling by end of year</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ROADMAP TABLE -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Maturity Roadmap</h2>
+        <p>Quarterly implementation plan for all groups.</p>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table roadmap-table">
+          <thead>
+            <tr><th>Group</th><th>Current Level</th><th>Q1 Action</th><th>Q2 Action</th><th>Q3 Action</th><th>Q4 Target</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Emerging Students (30)</strong></td>
+              <td><span class="badge red">Emerging</span></td>
+              <td>Google Classroom workshops</td>
+              <td>WiFi upgrade phase 1</td>
+              <td>Emhare UX improvements</td>
+              <td><span class="badge green">Established</span></td>
+            </tr>
+            <tr>
+              <td><strong>Established Students (74)</strong></td>
+              <td><span class="badge blue">Established</span></td>
+              <td>Clearance automation design</td>
+              <td>WiFi upgrade phase 2</td>
+              <td>Clearance go-live</td>
+              <td><span class="badge purple">Advanced</span></td>
+            </tr>
+            <tr>
+              <td><strong>Librarians</strong></td>
+              <td><span class="badge blue">Established</span></td>
+              <td>Digital resource training</td>
+              <td>System integration planning</td>
+              <td>Integration go-live</td>
+              <td><span class="badge purple">Advanced</span></td>
+            </tr>
+            <tr>
+              <td><strong>ICT Staff</strong></td>
+              <td><span class="badge blue">Established</span></td>
+              <td>Clearance automation build</td>
+              <td>Network infrastructure upgrade</td>
+              <td>Advanced ICT training</td>
+              <td><span class="badge purple">Advanced</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUARTERLY PROJECTION CHART -->
+  <section class="section bg-light">
+    <div class="container">
+      <div class="section-header">
+        <h2>Projected Score Improvement</h2>
+        <p>Expected maturity score trajectory per group after interventions are applied.</p>
+      </div>
+      <canvas id="projectionChart" height="110"></canvas>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div><h4><i class="fas fa-university"></i> UZ Digital Assessment</h4><p>Machine learning–powered digital maturity study.</p></div>
+        <div><h4>Pages</h4><ul><li><a href="index.html">Home</a></li><li><a href="findings.html">Findings</a></li><li><a href="model.html">Model</a></li><li><a href="recommendations.html">Recommendations</a></li><li><a href="dashboard.html">Dashboard</a></li></ul></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2024 University of Zimbabwe · Digital Maturity Assessment Project</p></div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/charts-recommendations.js"></script>
+</body>
+</html>

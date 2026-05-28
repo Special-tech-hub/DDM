@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Findings — UZ Digital Maturity</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-brand"><i class="fas fa-university"></i><span>UZ Digital Assessment</span></div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="findings.html" class="active">Findings</a></li>
+      <li><a href="model.html">Model</a></li>
+      <li><a href="recommendations.html">Recommendations</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
+  </nav>
+
+  <div class="page-hero">
+    <div class="container">
+      <h1>Key Findings</h1>
+      <p>Survey results, cluster analysis, and cross-group comparisons across all four digital dimensions.</p>
+    </div>
+  </div>
+
+  <!-- MISSING VALUES -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Data Quality</h2>
+        <p>Missing values were identified and imputed using column means before analysis.</p>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Dimension</th>
+              <th>Missing (Students)</th>
+              <th>Missing (Librarians)</th>
+              <th>Missing (ICT Staff)</th>
+              <th>Treatment</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Library Services</td><td><span class="badge red">41</span></td><td>0</td><td>0</td><td>Mean imputation</td></tr>
+            <tr><td>Emhare Ease</td><td><span class="badge yellow">4</span></td><td>0</td><td>0</td><td>Mean imputation</td></tr>
+            <tr><td>WiFi Reliability</td><td><span class="badge yellow">2</span></td><td>0</td><td>0</td><td>Mean imputation</td></tr>
+            <tr><td>Clearance Process</td><td><span class="badge yellow">1</span></td><td>0</td><td>0</td><td>Mean imputation</td></tr>
+            <tr><td>Google Classroom</td><td><span class="badge green">0</span></td><td><span class="badge yellow">1</span></td><td>0</td><td>Mean imputation</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLUSTER RESULTS -->
+  <section class="section bg-light">
+    <div class="container">
+      <div class="section-header">
+        <h2>Clustering Results — Students</h2>
+        <p>K-Means with k=2 produced the clearest separation (Silhouette Score: 0.365).</p>
+      </div>
+      <div class="two-col">
+        <div>
+          <canvas id="clusterPie" height="260"></canvas>
+        </div>
+        <div>
+          <canvas id="silhouetteBar" height="260"></canvas>
+        </div>
+      </div>
+      <div class="insight-box">
+        <i class="fas fa-lightbulb"></i>
+        <div>
+          <strong>Insight:</strong> 74 students (71%) are classified as <em>Established</em> — comfortable with digital services. 30 students (29%) are <em>Emerging</em> — facing challenges with reliability, ease of use, or confidence.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIMENSION SCORES -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Average Scores by Maturity Level</h2>
+        <p>How each cluster rates the four digital dimensions on a 1–5 scale.</p>
+      </div>
+      <canvas id="dimensionBar" height="120"></canvas>
+      <div class="scores-table-wrap">
+        <table class="data-table mt-2">
+          <thead>
+            <tr><th>Dimension</th><th>Emerging</th><th>Established</th><th>Gap</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Emhare Ease</td>
+              <td><div class="score-bar-cell"><div class="score-bar" style="width:68%">3.41</div></div></td>
+              <td><div class="score-bar-cell"><div class="score-bar blue" style="width:64%">3.21</div></div></td>
+              <td><span class="badge yellow">0.20</span></td>
+            </tr>
+            <tr>
+              <td>WiFi Reliability</td>
+              <td><div class="score-bar-cell"><div class="score-bar red" style="width:99%">4.97</div></div></td>
+              <td><div class="score-bar-cell"><div class="score-bar blue" style="width:45%">2.24</div></div></td>
+              <td><span class="badge red">2.73</span></td>
+            </tr>
+            <tr>
+              <td>Clearance Process</td>
+              <td><div class="score-bar-cell"><div class="score-bar" style="width:62%">3.10</div></div></td>
+              <td><div class="score-bar-cell"><div class="score-bar blue" style="width:61%">3.07</div></div></td>
+              <td><span class="badge green">0.03</span></td>
+            </tr>
+            <tr>
+              <td>Google Classroom</td>
+              <td><div class="score-bar-cell"><div class="score-bar" style="width:61%">3.07</div></div></td>
+              <td><div class="score-bar-cell"><div class="score-bar blue" style="width:65%">3.27</div></div></td>
+              <td><span class="badge green">0.20</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- CROSS GROUP -->
+  <section class="section bg-light">
+    <div class="container">
+      <div class="section-header">
+        <h2>Cross-Group Comparison</h2>
+        <p>Average scores across Students, Librarians, and ICT Staff for each dimension.</p>
+      </div>
+      <canvas id="crossGroupBar" height="120"></canvas>
+      <div class="insight-box mt-2">
+        <i class="fas fa-info-circle"></i>
+        <div>
+          <strong>Key observation:</strong> All Librarians and ICT Staff are classified as <em>Established</em>. Students show variation — 29% remain in the Emerging tier, primarily driven by poor WiFi experience.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div><h4><i class="fas fa-university"></i> UZ Digital Assessment</h4><p>Machine learning–powered digital maturity study.</p></div>
+        <div><h4>Pages</h4><ul><li><a href="index.html">Home</a></li><li><a href="findings.html">Findings</a></li><li><a href="model.html">Model</a></li><li><a href="recommendations.html">Recommendations</a></li><li><a href="dashboard.html">Dashboard</a></li></ul></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2024 University of Zimbabwe · Digital Maturity Assessment Project</p></div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/charts-findings.js"></script>
+</body>
+</html>
