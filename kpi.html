@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KPI Framework — UZ Digital Maturity</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-brand"><i class="fas fa-university"></i><span>UZ Digital Assessment</span></div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="findings.html">Findings</a></li>
+      <li><a href="model.html">Model</a></li>
+      <li><a href="recommendations.html">Recommendations</a></li>
+      <li><a href="kpi.html" class="active">KPI</a></li>
+      <li><a href="simulation.html">Simulation</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
+  </nav>
+
+  <div class="page-hero">
+    <div class="container">
+      <h1>KPI Framework &amp; Monitoring Plan</h1>
+      <p>Measurable indicators and tracking mechanisms for each digital dimension — enabling quarterly progress reviews.</p>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Why KPIs Matter</h2>
+        <p>Without measurable targets, improvement is invisible. These KPIs translate survey scores into operational metrics that ICT, Library, and Academic teams can track continuously.</p>
+      </div>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-icon blue"><i class="fas fa-tachometer-alt"></i></div>
+          <h3>Measurable</h3>
+          <p>Each KPI has a clear numeric target — no ambiguity about what success looks like.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon green"><i class="fas fa-calendar-check"></i></div>
+          <h3>Time-bound</h3>
+          <p>Monitoring plans specify frequency — monthly, quarterly, or per semester.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon orange"><i class="fas fa-users-cog"></i></div>
+          <h3>Owned</h3>
+          <p>Each dimension maps to a responsible team — ICT, Library, or Academic Registry.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon purple"><i class="fas fa-sync-alt"></i></div>
+          <h3>Actionable</h3>
+          <p>KPI breaches trigger specific interventions from the recommendations roadmap.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KPI TABLE -->
+  <section class="section bg-light">
+    <div class="container">
+      <div class="section-header">
+        <h2>KPI Table</h2>
+        <p>Four dimensions, four KPIs, four monitoring plans.</p>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table kpi-table">
+          <thead>
+            <tr>
+              <th>Dimension</th>
+              <th>Current Score</th>
+              <th>KPI / Target</th>
+              <th>Owner</th>
+              <th>Monitoring Plan</th>
+              <th>Frequency</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="dim-cell">
+                  <span class="dim-dot" style="background:#3498db"></span>
+                  <strong>Emhare Ease</strong>
+                </div>
+              </td>
+              <td><div class="score-pill" style="--c:#3498db">3.28 / 5</div></td>
+              <td>
+                <div class="kpi-target">
+                  <i class="fas fa-bullseye" style="color:#3498db"></i>
+                  <span>&ge;80% of students reporting <em>"easy to use"</em></span>
+                </div>
+              </td>
+              <td><span class="owner-tag blue-tag">ICT / Registry</span></td>
+              <td>Quarterly student surveys; track usability complaints via helpdesk tickets</td>
+              <td><span class="badge blue">Quarterly</span></td>
+            </tr>
+            <tr class="critical-row">
+              <td>
+                <div class="dim-cell">
+                  <span class="dim-dot" style="background:#e74c3c"></span>
+                  <strong>WiFi Reliability</strong>
+                  <span class="badge red" style="margin-left:0.4rem;font-size:0.68rem">Critical</span>
+                </div>
+              </td>
+              <td><div class="score-pill" style="--c:#e74c3c">2.24 / 5</div></td>
+              <td>
+                <div class="kpi-target">
+                  <i class="fas fa-bullseye" style="color:#e74c3c"></i>
+                  <span>WiFi uptime <strong>&ge;99%</strong>; avg speed &ge;10 Mbps per user</span>
+                </div>
+              </td>
+              <td><span class="owner-tag red-tag">ICT Infrastructure</span></td>
+              <td>ICT network logs; monthly uptime reports; speed test dashboards</td>
+              <td><span class="badge red">Monthly</span></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="dim-cell">
+                  <span class="dim-dot" style="background:#2ecc71"></span>
+                  <strong>Clearance Process</strong>
+                </div>
+              </td>
+              <td><div class="score-pill" style="--c:#2ecc71">3.08 / 5</div></td>
+              <td>
+                <div class="kpi-target">
+                  <i class="fas fa-bullseye" style="color:#2ecc71"></i>
+                  <span>Average clearance approval time <strong>&le;48 hours</strong></span>
+                </div>
+              </td>
+              <td><span class="owner-tag green-tag">Academic Registry</span></td>
+              <td>Admin system logs; monthly average turnaround time reports</td>
+              <td><span class="badge green">Monthly</span></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="dim-cell">
+                  <span class="dim-dot" style="background:#f39c12"></span>
+                  <strong>Google Classroom</strong>
+                </div>
+              </td>
+              <td><div class="score-pill" style="--c:#f39c12">3.22 / 5</div></td>
+              <td>
+                <div class="kpi-target">
+                  <i class="fas fa-bullseye" style="color:#f39c12"></i>
+                  <span>&ge;80% of students actively using Google Classroom per semester</span>
+                </div>
+              </td>
+              <td><span class="owner-tag orange-tag">Academic / ICT</span></td>
+              <td>Platform usage analytics (login frequency, assignment submissions); semester reports</td>
+              <td><span class="badge yellow">Per Semester</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- KPI PROGRESS GAUGES -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Current Progress vs Target</h2>
+        <p>How far each dimension is from its KPI target on a 1–5 scale.</p>
+      </div>
+      <div class="gauge-grid">
+        <div class="gauge-card">
+          <canvas id="gauge-emhare"></canvas>
+          <h4>Emhare Ease</h4>
+          <p class="gauge-sub">Current: 3.28 &nbsp;|&nbsp; Target: 4.0</p>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar-fill" style="width:65.6%; background:#3498db"></div>
+          </div>
+          <span class="progress-pct">65.6% to target</span>
+        </div>
+        <div class="gauge-card critical-gauge">
+          <canvas id="gauge-wifi"></canvas>
+          <h4>WiFi Reliability <i class="fas fa-exclamation-triangle" style="color:#e74c3c;font-size:0.85rem"></i></h4>
+          <p class="gauge-sub">Current: 2.24 &nbsp;|&nbsp; Target: 4.0</p>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar-fill" style="width:44.8%; background:#e74c3c"></div>
+          </div>
+          <span class="progress-pct" style="color:#e74c3c">44.8% to target — Largest Gap</span>
+        </div>
+        <div class="gauge-card">
+          <canvas id="gauge-clearance"></canvas>
+          <h4>Clearance Process</h4>
+          <p class="gauge-sub">Current: 3.08 &nbsp;|&nbsp; Target: 4.0</p>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar-fill" style="width:61.6%; background:#2ecc71"></div>
+          </div>
+          <span class="progress-pct">61.6% to target</span>
+        </div>
+        <div class="gauge-card">
+          <canvas id="gauge-gclass"></canvas>
+          <h4>Google Classroom</h4>
+          <p class="gauge-sub">Current: 3.22 &nbsp;|&nbsp; Target: 4.0</p>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar-fill" style="width:64.4%; background:#f39c12"></div>
+          </div>
+          <span class="progress-pct">64.4% to target</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MONITORING TIMELINE -->
+  <section class="section bg-light">
+    <div class="container">
+      <div class="section-header">
+        <h2>Monitoring Calendar</h2>
+        <p>When each KPI should be reviewed and by whom.</p>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot" style="background:#e74c3c"></div>
+          <div class="tl-body">
+            <span class="tl-when">Monthly</span>
+            <h4>WiFi Uptime Report</h4>
+            <p>ICT Infrastructure team reviews network logs, uptime %, and speed test results. Escalate if uptime drops below 99%.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot" style="background:#2ecc71"></div>
+          <div class="tl-body">
+            <span class="tl-when">Monthly</span>
+            <h4>Clearance Turnaround Report</h4>
+            <p>Academic Registry pulls average approval times from admin system. Flag any cases exceeding 48 hours.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot" style="background:#3498db"></div>
+          <div class="tl-body">
+            <span class="tl-when">Quarterly</span>
+            <h4>Emhare Usability Survey</h4>
+            <p>Short pulse survey sent to all students. Track % rating Emhare as "easy to use". Compare to previous quarter.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot" style="background:#f39c12"></div>
+          <div class="tl-body">
+            <span class="tl-when">Per Semester</span>
+            <h4>Google Classroom Usage Analytics</h4>
+            <p>Platform analytics report: active users, login frequency, assignment submission rates. Target &ge;80% active users.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot" style="background:#9b59b6"></div>
+          <div class="tl-body">
+            <span class="tl-when">Annually</span>
+            <h4>Full Digital Maturity Re-Assessment</h4>
+            <p>Re-run the full survey across all groups. Re-cluster and re-classify. Compare composite maturity scores to baseline.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GAP CHART -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Gap to KPI Target (4.0) by Group</h2>
+        <p>How much each group needs to improve per dimension to hit the institutional target.</p>
+      </div>
+      <canvas id="kpiGapChart" height="110"></canvas>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div><h4><i class="fas fa-university"></i> UZ Digital Assessment</h4><p>Machine learning–powered digital maturity study.</p></div>
+        <div><h4>Pages</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="findings.html">Findings</a></li>
+            <li><a href="model.html">Model</a></li>
+            <li><a href="recommendations.html">Recommendations</a></li>
+            <li><a href="kpi.html">KPI</a></li>
+            <li><a href="simulation.html">Simulation</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2024 University of Zimbabwe · Digital Maturity Assessment Project</p></div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/charts-kpi.js"></script>
+</body>
+</html>

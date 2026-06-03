@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulation — UZ Digital Maturity</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-brand"><i class="fas fa-university"></i><span>UZ Digital Assessment</span></div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="findings.html">Findings</a></li>
+      <li><a href="model.html">Model</a></li>
+      <li><a href="recommendations.html">Recommendations</a></li>
+      <li><a href="kpi.html">KPI</a></li>
+      <li><a href="simulation.html" class="active">Simulation</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
+  </nav>
+
+  <div class="page-hero sim-hero">
+    <div class="container">
+      <span class="hero-badge">What-If Analysis</span>
+      <h1>WiFi Intervention<br /><span class="accent">Simulation Model</span></h1>
+      <p>What happens to student digital maturity levels if campus Wi-Fi reliability is improved to 99% uptime?</p>
+    </div>
+  </div>
+
+  <!-- SIMULATION QUESTION -->
+  <section class="section">
+    <div class="container">
+      <div class="sim-question-box">
+        <div class="sim-q-icon"><i class="fas fa-flask"></i></div>
+        <div>
+          <h2>The Simulation Question</h2>
+          <p>We selectively boost the Wi-Fi reliability scores for students who rated it poorly and re-run the Random Forest classifier. The goal is to observe how many students shift between maturity clusters — <strong>Emerging, Developing, Established, Leading</strong> — compared to the baseline distribution.</p>
+          <p style="margin-top:0.75rem">This helps us understand the impact of targeted infrastructure improvements on overall digital maturity at UZ.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4-CLUSTER MODEL -->
+  <section class="section bg-light">
+    <div class="container">
+      <div class="section-header">
+        <h2>4-Cluster Maturity Model</h2>
+        <p>For the simulation, K-Means is run with k=4 to produce a richer maturity spectrum.</p>
+      </div>
+      <div class="cluster-legend">
+        <div class="cl-item" style="--c:#e74c3c">
+          <div class="cl-dot"></div>
+          <div>
+            <strong>Emerging</strong>
+            <p>Low digital adoption. Struggles with all four dimensions. Needs foundational support.</p>
+          </div>
+        </div>
+        <div class="cl-item" style="--c:#f39c12">
+          <div class="cl-dot"></div>
+          <div>
+            <strong>Developing</strong>
+            <p>Partial adoption. Some dimensions are improving but WiFi and Emhare remain weak.</p>
+          </div>
+        </div>
+        <div class="cl-item" style="--c:#3498db">
+          <div class="cl-dot"></div>
+          <div>
+            <strong>Established</strong>
+            <p>Comfortable with digital services. Moderate scores across all dimensions.</p>
+          </div>
+        </div>
+        <div class="cl-item" style="--c:#2ecc71">
+          <div class="cl-dot"></div>
+          <div>
+            <strong>Leading</strong>
+            <p>High digital maturity. Confident, efficient, and satisfied across all dimensions.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Model accuracy -->
+      <div class="model-accuracy-strip">
+        <div class="ma-item">
+          <i class="fas fa-tree" style="color:#3498db"></i>
+          <div>
+            <span class="ma-num">90.6%</span>
+            <span class="ma-label">Decision Tree Accuracy</span>
+          </div>
+        </div>
+        <div class="ma-item">
+          <i class="fas fa-seedling" style="color:#2ecc71"></i>
+          <div>
+            <span class="ma-num">90.6%</span>
+            <span class="ma-label">Random Forest Accuracy</span>
+          </div>
+        </div>
+        <div class="ma-item">
+          <i class="fas fa-wifi" style="color:#e74c3c"></i>
+          <div>
+            <span class="ma-num">49.2%</span>
+            <span class="ma-label">WiFi Feature Importance</span>
+          </div>
+        </div>
+        <div class="ma-item">
+          <i class="fab fa-google" style="color:#f39c12"></i>
+          <div>
+            <span class="ma-num">29.0%</span>
+            <span class="ma-label">Google Classroom Importance</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURE IMPORTANCE 4-CLUSTER -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Feature Importance — 4-Cluster Model</h2>
+        <p>WiFi remains dominant but Google Classroom gains more weight in the 4-cluster model.</p>
+      </div>
+      <div class="two-col">
+        <canvas id="sim-importance"></canvas>
+        <div class="feature-insights">
+          <div class="fi-item">
+            <div class="fi-rank red">1</div>
+            <div>
+              <strong>WiFi Reliability — 49.2%</strong>
+              <p>Still the strongest predictor, but less dominant than in the 2-cluster model (90%). The 4-cluster model captures more nuance.</p>
+            </div>
+          </div>
+          <div class="fi-item">
+            <div class="fi-rank orange">2</div>
+            <div>
+              <strong>Google Classroom — 29.0%</strong>
+              <p>Significantly more important in the 4-cluster model. Confidence in digital learning platforms separates Developing from Established students.</p>
+            </div>
+          </div>
+          <div class="fi-item">
+            <div class="fi-rank green">3</div>
+            <div>
+              <strong>Clearance Process — 13.3%</strong>
+              <p>Contributes meaningfully to distinguishing Established from Leading students.</p>
+            </div>
+          </div>
+          <div class="fi-item">
+            <div class="fi-rank blue">4</div>
+            <div>
+              <strong>Emhare Ease — 8.5%</strong>
+              <p>Least important but still contributes to the overall maturity classification.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BASELINE vs SCENARIO -->
+  <section class="section bg-light">
+    <div class="container">
+      <div class="section-header">
+        <h2>Baseline vs WiFi-Improved Scenario</h2>
+        <p>Cluster distribution before and after boosting WiFi reliability to 4.9/5 for all students.</p>
+      </div>
+
+      <!-- Interactive slider -->
+      <div class="sim-controls">
+        <label for="wifiSlider"><i class="fas fa-wifi"></i> WiFi Improvement Level: <strong id="sliderVal">4.9 / 5</strong></label>
+        <input type="range" id="wifiSlider" min="3" max="5" step="0.1" value="4.9" />
+        <p class="slider-hint">Drag to simulate different WiFi improvement levels and see how cluster distribution changes.</p>
+      </div>
+
+      <div class="two-col" style="margin-top:2rem">
+        <div>
+          <canvas id="sim-baseline-bar"></canvas>
+        </div>
+        <div>
+          <canvas id="sim-scenario-bar"></canvas>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEFORE / AFTER PIES -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Before vs After — Maturity Distribution</h2>
+        <p>Proportional shift in student maturity clusters after WiFi intervention.</p>
+      </div>
+      <div class="two-col">
+        <div>
+          <canvas id="sim-pie-before"></canvas>
+          <p class="chart-caption">Baseline: Natural distribution based on survey responses</p>
+        </div>
+        <div>
+          <canvas id="sim-pie-after"></canvas>
+          <p class="chart-caption">After WiFi boost to 4.9/5: Re-classified by Random Forest</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHIFT ANALYSIS -->
+  <section class="section bg-light">
+    <div class="container">
+      <div class="section-header">
+        <h2>Cluster Shift Analysis</h2>
+        <p>16 out of 32 test-set students changed clusters after the WiFi intervention.</p>
+      </div>
+      <div class="shift-table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr><th>From (Baseline)</th><th>To (After WiFi Boost)</th><th>Count</th><th>Interpretation</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="badge" style="background:rgba(46,204,113,0.12);color:#27ae60">Leading</span></td>
+              <td><span class="badge red">Emerging</span></td>
+              <td><strong>6</strong></td>
+              <td>Leading students had high WiFi scores — boosting everyone's WiFi removes their differentiator</td>
+            </tr>
+            <tr>
+              <td><span class="badge blue">Established</span></td>
+              <td><span class="badge red">Emerging</span></td>
+              <td><strong>5</strong></td>
+              <td>Established students also relied on WiFi advantage; other dimensions are moderate</td>
+            </tr>
+            <tr>
+              <td><span class="badge yellow">Developing</span></td>
+              <td><span class="badge red">Emerging</span></td>
+              <td><strong>3</strong></td>
+              <td>Developing students shift to Emerging when WiFi is equalised</td>
+            </tr>
+            <tr>
+              <td><span class="badge red">Emerging</span></td>
+              <td><span class="badge blue">Established</span></td>
+              <td><strong>2</strong></td>
+              <td>Some Emerging students benefit and move up when WiFi improves</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="insight-box mt-2" style="border-left-color:#e74c3c; background:rgba(231,76,60,0.06)">
+        <i class="fas fa-exclamation-triangle" style="color:#e74c3c"></i>
+        <div>
+          <strong>Paradox Explained:</strong> When WiFi is boosted uniformly to 4.9/5, most students collapse into the Emerging cluster. This is because WiFi was the primary differentiator — students who previously scored high on WiFi (Leading/Established) now have the same score as everyone else. The classifier then relies on the remaining dimensions (Google Classroom, Clearance, Emhare), which are all moderate (~3.0) across all students. This confirms that <strong>WiFi improvement alone is not sufficient</strong> — all four dimensions must be developed together to achieve higher maturity levels.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLUSTER CENTRES -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Cluster Centres — What Each Level Looks Like</h2>
+        <p>Average scores per dimension for each maturity cluster.</p>
+      </div>
+      <canvas id="sim-centres" height="110"></canvas>
+      <div class="table-wrap" style="margin-top:2rem">
+        <table class="data-table">
+          <thead>
+            <tr><th>Maturity Level</th><th>Emhare Ease</th><th>WiFi Reliability</th><th>Clearance Process</th><th>Google Classroom</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="badge red">Emerging</span></td>
+              <td>3.41</td><td><strong class="red-text">4.97</strong></td><td>3.10</td><td>3.07</td>
+            </tr>
+            <tr>
+              <td><span class="badge yellow">Developing</span></td>
+              <td>2.94</td><td>2.36</td><td>3.14</td><td><strong>2.21</strong></td>
+            </tr>
+            <tr>
+              <td><span class="badge blue">Established</span></td>
+              <td>3.68</td><td>2.53</td><td><strong>3.53</strong></td><td><strong class="green-text">4.42</strong></td>
+            </tr>
+            <tr>
+              <td><span class="badge" style="background:rgba(46,204,113,0.12);color:#27ae60">Leading</span></td>
+              <td>3.17</td><td><strong class="green-text">1.93</strong></td><td>2.67</td><td>3.56</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="insight-box mt-2">
+        <i class="fas fa-lightbulb"></i>
+        <div>
+          <strong>Interesting finding:</strong> The <em>Leading</em> cluster actually has the <em>lowest</em> WiFi score (1.93). This means Leading students are digitally mature despite poor WiFi — they compensate with high Google Classroom confidence (3.56) and strong Emhare usage. This reinforces that <strong>true digital maturity requires all dimensions to be strong</strong>, not just infrastructure.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONCLUSION -->
+  <section class="section bg-light">
+    <div class="container">
+      <div class="section-header">
+        <h2>Simulation Conclusions</h2>
+      </div>
+      <div class="conclusion-grid">
+        <div class="conclusion-card">
+          <div class="cc-num" style="background:#e74c3c">1</div>
+          <h4>WiFi alone is not enough</h4>
+          <p>Boosting WiFi uniformly collapses most students into the Emerging cluster because the other dimensions remain underdeveloped. A holistic approach is required.</p>
+        </div>
+        <div class="conclusion-card">
+          <div class="cc-num" style="background:#f39c12">2</div>
+          <h4>Google Classroom is the second lever</h4>
+          <p>In the 4-cluster model, Google Classroom confidence (29%) is the second most important feature. Training programmes will have significant impact on maturity classification.</p>
+        </div>
+        <div class="conclusion-card">
+          <div class="cc-num" style="background:#3498db">3</div>
+          <h4>Targeted intervention beats uniform improvement</h4>
+          <p>Boosting WiFi only for students who rated it poorly (&le;2) would be more effective than a uniform boost — it lifts the floor without disrupting the existing differentiation.</p>
+        </div>
+        <div class="conclusion-card">
+          <div class="cc-num" style="background:#2ecc71">4</div>
+          <h4>Parallel investment is the optimal strategy</h4>
+          <p>Invest in WiFi infrastructure AND Google Classroom training AND clearance automation simultaneously. Sequential investment will not achieve the 4.0 target by Q4.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div><h4><i class="fas fa-university"></i> UZ Digital Assessment</h4><p>Machine learning–powered digital maturity study.</p></div>
+        <div><h4>Pages</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="findings.html">Findings</a></li>
+            <li><a href="model.html">Model</a></li>
+            <li><a href="recommendations.html">Recommendations</a></li>
+            <li><a href="kpi.html">KPI</a></li>
+            <li><a href="simulation.html">Simulation</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2024 University of Zimbabwe · Digital Maturity Assessment Project</p></div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/charts-simulation.js"></script>
+</body>
+</html>
